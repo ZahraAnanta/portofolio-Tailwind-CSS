@@ -1,5 +1,6 @@
 module.exports = {
   content: ['index.html'],
+  darkMode: 'class',
   theme: {
     container : {
       center: true,
@@ -7,8 +8,8 @@ module.exports = {
     },
     extend: {
       colors : {
-        primary : '#14b8a6',
-        metal : '#172554',
+        primary : '#a78bfa',
+        metal : '#1e1b4b',
         pucet : '#64748b',
       },
       screens: {

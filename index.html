@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portofoli Tailwind CSS</title>
         <link href="dist/output.css" rel="stylesheet" />
+        <script>
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+            } else {
+            document.documentElement.classList.remove('dark')
+            }
+        </script>
     </head>
     <body>
         <!-- Navbar Start -->
@@ -22,22 +29,34 @@
                             <span class="hamberger-line origin-bottom-left transition duration-300 ease-in-out"></span>
                         </button>
 
-                        <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                        <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-metal lg:dark:bg-transparent dark:shadow-slate-600 ">
                             <ul class="block lg:flex">
                                 <li class="group">
-                                    <a href="#home" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary">Home</a>
+                                    <a href="#home" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary dark:text-white">Home</a>
                                 </li>
                                 <li class="group">
-                                    <a href="#about" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary">About</a>
+                                    <a href="#about" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary dark:text-white">About</a>
                                 </li>
                                 <li class="group">
-                                    <a href="#portofolio" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary">Portofolio</a>
+                                    <a href="#portofolio" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary dark:text-white">Portofolio</a>
                                 </li>
                                 <li class="group">
-                                    <a href="#clients" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary">Clients</a>
+                                    <a href="#clients" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary dark:text-white">Clients</a>
                                 </li>
                                 <li class="group">
-                                    <a href="#contact" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary">Contact</a>
+                                    <a href="#contact" class="text-base text-metal py-2 mx-8 flex group-hover:text-primary dark:text-white">Contact</a>
+                                </li>
+                                <li class="mt-3 flex items-center pl-8">
+                                    <div class="flex">
+                                        <span class="mr-2 text-sm text-slate-500">Light</span>
+                                        <input type="checkbox" class="hidden" id="dark-toggle" />
+                                        <label for="dark-toggle">
+                                            <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                                                <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+                                            </div>
+                                        </label>
+                                        <span class="ml-2 text-sm text-slate-500">Dark</span>
+                                    </div>
                                 </li>
                             </ul>
                         </nav>
@@ -48,21 +67,26 @@
         <!-- Navbar End -->
 
         <!-- Hero Section Start -->
-        <section id="home" class="pt-36">
+        <section id="home" class="pt-36 dark:bg-metal">
             <div class="container">
                 <div class="flex flex-wrap">
                     <div class="w-full self-center px-4 lg:w-1/2">
-                        <h1 class="text-base font-semibold text-primary md:text-xl">Hello everyone 👋, i am <span class="block font-bold text-metal text-4xl mt-1 lg:text-5xl">Zahra Areefa Ananta</span></h1>
-                        <h2 class="font-medium text-pucet text-lg mb-5 lg:text-2xl">Student of Informatics Engginering | Institut Teknologi Sumatera</h2>
-                        <p class="font-medium text-pucet mb-10 leading-relaxed">Moto hidup saya adalah makan, tidur, <span class="text-metal font-bold">SUKSES!</span></p>
+                        <h1 class="text-base font-semibold text-primary md:text-xl">Hello everyone 👋, i am <span class="block font-bold text-metal text-4xl mt-1 lg:text-5xl dark:text-white">Zahra Areefa Ananta</span></h1>
+                        <h2 class="font-medium text-pucet text-lg mb-5 lg:text-2xl">Student of Informatics Engginering | Sumatra Institute of Technology</h2>
+                        <p class="font-medium text-pucet mb-10 leading-relaxed">Nothing is wasted in learning because knowledge will be useful in <span class="text-metal font-bold dark:text-white">TIME.</span></p>
 
-                        <a href="#" class="text-base font-semibold text-white
+                        <a href="#contact" class="text-base font-semibold text-white
                         bg-primary py-3 px-8 rounded-full hover:shadow-lg
                         hover:opacity-80 transition duration-300 ease-in-out">Contact me</a>
                     </div>
                     <div class="w-full self-end px-4 lg:w-1/2">
                         <div class="relative mt-10 lg:right-0 lg:mt-9">
-                         <img src="dist/img/si cans.jpg" alt="Zahra Areefa Ananta" class="relative z-10 mx-auto max-w-full" />
+                         <img src="dist/img/zahra.png" alt="Zahra Areefa Ananta" class="relative z-10 mx-auto max-w-full" />
+                         <span class="absolute -bottom-20 left-1/2 -translate-x-1/2 md:scale-125">
+                            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#a78bfa" d="M64.5,-37C77,-15.6,76,13.8,63,26C50,38.3,25,33.3,-0.8,33.7C-26.6,34.2,-53.2,40.1,-61.3,30.7C-69.4,21.3,-59.1,-3.4,-45.8,-25.2C-32.5,-47.1,-16.2,-66,4.9,-68.9C26,-71.7,52,-58.4,64.5,-37Z" transform="translate(100 100) scale(1.1)" />
+                            </svg>
+                         </span>
                         </div>
                     </div>
                 </div>
@@ -71,17 +95,17 @@
         <!-- Hero Section End-->
 
         <!-- About Section Start -->
-        <section id="about" class="pt-36 pb-32">
+        <section id="about" class="pt-36 pb-32 dark:bg-metal">
             <div class="container">
                 <div class="flex flex-wrap">
                     <div class="w-full px-4 mb-10 lg:w-1/2">
                         <h4 class="font-bold uppercase text-primary text-lg mb-3">About me</h4>
-                        <h2 class="font-bold text-metal text-3xl mb-5 max-w-xl lg:text-4xl">Lagi mendalami ilmu informatika</h2>
-                        <p class="font-medium text-base text-pucet max-w-xl lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores temporibus debitis voluptates.</p>
+                        <h2 class="font-bold text-metal text-3xl mb-5 max-w-xl lg:text-4xl dark:text-white">Likes to learn new things</h2>
+                        <p class="font-medium text-base text-pucet max-w-xl lg:text-lg">My name is Zahra Areefa Ananta, I am a student from Sumatra Institute of Technology, and i took the informatics engineering study program. I have a high desire and enthusiasm to learn and develop my skills in managing and analyzing data in databases. I also someone who likes to interact with anyone and has wanted to always improve myself. I also someone who is responsible for the work that i have.</p>
                     </div>
                     <div class="w-full px-4 lg:w-1/2">
-                        <h3 class="font-semibold text-metal text-2xl mb-4 lg:text-3xl lg:pt-10">Let's be friend!</h3>
-                        <p class="font-medium text-base text-pucet mb-6  lg:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis soluta facere ullam quas facilis suscipit cum at?
+                        <h3 class="font-semibold text-metal text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white">Let's be friend!</h3>
+                        <p class="font-medium text-base text-pucet mb-6  lg:text-lg">To get to know me better, i also have several social media that you can follow. Let's be friend on:
                         </p>
                         <div class="flex items-center">
                             <!-- Instagram -->
@@ -111,13 +135,13 @@
         <!-- About Section End -->
 
         <!-- Portofolio Start-->
-        <section id="portofolio" class="pt-36 pb-16 bg-slate-100">
+        <section id="portofolio" class="pt-36 pb-16 bg-slate-100 dark:bg-indigo-200">
             <div class="container">
                 <div class="w-full px-4">
-                    <div class="max-w-xl mx-auto text-center mb-16">
+                    <div class="max-w-xl mx-auto text-center mb-16"> 
                         <h4 class="font-semibold text-lg text-primary mb-2">Portofolio</h4>
-                        <h2 class="font-bold text-metal text-3xl mb-4 sm:text-4xl lg:text-5xl">Project Terbaru</h2>
-                        <p class="font-mono text-md text-pucet md:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi obcaecati nam quod corrupti, esse doloribus.</p>
+                        <h2 class="font-bold text-metal text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Latest projects</h2>
+                        <p class="font-mono text-md text-pucet md:text-lg">Here are some of the projects i've done myself or in groups.</p>
                     </div>
                 </div>
 
@@ -126,8 +150,8 @@
                         <div class="rounded-md shadow-md overflow-hidden">
                             <img src="dist/img/portofolio/pemira.jpg" alt="pemira" width="w-full">
                         </div>
-                        <h3 class="font-semibold text-xl text-metal mt-5 mb-3">Design Pemira Itera 2022</h3>
-                        <p class="font-medium text-base text-pucet">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo unde saepe nobis!</p>
+                        <h3 class="font-semibold text-xl text-metal mt-5 mb-3 dark:text-white">Design(UI/UX) Pemira Itera 2022</h3>
+                        <p class="font-medium text-base text-pucet">This website is useful to accommodate the voices of ITERA students in electing of student president candidates. I work as an UI/UX design to design the website, i also collaborated with the "pemira IT team" to create this website.</p>
                     </div>
                 </div>
             </div>
@@ -135,19 +159,19 @@
         <!-- Poertofolio End -->
 
         <!-- Clients section start -->
-        <section id="clients" class="pt-36 pb-32 bg-slate-800">
+        <section id="clients" class="pt-36 pb-32 bg-indigo-950">
             <div class="container">
                 <div class="w-full px-4">
                     <div class="mx-auto text-center mb-16">
                         <h4 class="font-semibold text-lg text-primary mb-2">Clients</h4>
                         <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl">Collab with:</h2>
-                        <p class="font-medium text-md text-pucet md:text-lg ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi obcaecati nam quod corrupti, esse doloribus.</p>
+                        <p class="font-medium text-md text-pucet md:text-lg ">Here are some of the clients i've been worked with :</p>
                     </div>
                 </div>
                 
                 <div class="w-full px-4">
                    <div class="flex flex-wrap items-center justify-center">
-                     <a href="#" class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+                     <a href="https://pemira.km.itera.ac.id" class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
                         <img src="dist/img/clients/pemira logo.png" alt="pemira">
                      </a>
                    </div> 
@@ -157,13 +181,13 @@
         <!-- Clients section end -->
 
         <!-- Contact section start -->
-        <section id="contact" class="pt-36 pb-32">
+        <section id="contact" class="pt-36 pb-32 dark:bg-indigo-200">
             <div class="container">
                 <div class="w-full px-4">
                     <div class="mx-auto mb-16 max-w-xl text-center">
                         <h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
-                        <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Contact us</h2>
-                        <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam perspiciatis blanditiis dolores?</p>
+                        <h2 class="mb-4 text-3xl font-bold text-metal dark:text-white sm:text-4xl lg:text-5xl">Contact us</h2>
+                        <p class="text-md font-medium text-secondary md:text-lg dark:text-pucet">You can send me any message below :</p>
                     </div>
                 </div>
 
@@ -197,18 +221,18 @@
                     <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
                         <h2 class="font-bold text-4xl text-white mb-5">ZAA</h2>
                         <h3 class="font-bold text-2xl mb-2">Contact us</h3>
-                        <p>zahrareefa@gmail.com</p>
-                        <p>Jl. KaptenMustofa No.71</p>
-                        <p>Lampung</p>
+                        <p class="mb-2">zahrareefa@gmail.com</p>
+                        <p class="mb-2">Jl. KaptenMustofa No.71</p>
+                        <p class="mb-2">Lampung</p>
                     </div>
                     <div class="w-full px-4 mb-12 md:w-1/3">
-                        <h3 class="font-semibold text-xl text-white mb-5">Kategori Tulisan</h3>
+                        <h3 class="font-semibold text-xl text-white mb-5">Writing category</h3>
                         <ul class="text-slate-300">
                             <li>
                                 <a href="#" class="inline-block text-base hover:text-primary mb-3">Programming</a>
                             </li>
                             <li>
-                                <a href="#" class="inline-block text-base hover:text-primary mb-3">Teknology</a>
+                                <a href="#" class="inline-block text-base hover:text-primary mb-3">Technology</a>
                             </li>
                             <li>
                                 <a href="#" class="inline-block text-base hover:text-primary mb-3">Life style</a>
@@ -265,6 +289,7 @@
         </footer>
         <!-- Footer end -->
 
+        
         <script src="dist/js/script.js"></script>
     </body>
 </html>
